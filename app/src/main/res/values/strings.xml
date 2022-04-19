@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ProgectForTenzor</string>
+    <string name="nameApp">REPETITION</string>
+    <string name="neverRepeat">Больше не повторять</string>
+    <string name="nextWord">Следующее слово</string>
+    <string name="addWord">Добавить слово</string>
+    <string name="addWords">Добавить слова</string>
+    <string name="repeatWords">Повторить слова</string>
+    <string name="showList">Показать словарик</string>
+
+</resources>
