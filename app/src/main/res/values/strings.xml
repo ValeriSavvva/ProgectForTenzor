@@ -7,5 +7,9 @@
     <string name="addWords">Добавить слова</string>
     <string name="repeatWords">Повторить слова</string>
     <string name="showList">Показать словарик</string>
+    <string name="english">Английский</string>
+    <string name="russian">Русский</string>
+    <string name="tranEn">Перевод на английский</string>
+    <string name="tranRu">Перевод на русский</string>
 
 </resources>

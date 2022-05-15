@@ -13,12 +13,12 @@ class MainActivity : AppCompatActivity() {
 
         val buttonAddWords: Button?= findViewById(R.id.addWords)
         buttonAddWords?.setOnClickListener {
-            val intent = Intent(this@MainActivity, AddWords::class.java)
+            val intent = Intent(this@MainActivity, AddWordsActivity::class.java)
             startActivity(intent)
         }
         val buttonRepeatWords: Button? = findViewById(R.id.repeatWords)
         buttonRepeatWords?.setOnClickListener {
-            val intent = Intent(this@MainActivity, LearnWords::class.java)
+            val intent = Intent(this@MainActivity, LearnWordsActivity::class.java)
             startActivity(intent)
         }
 //        val buttonShowList: Button = findViewById(R.id.showList)

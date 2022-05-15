@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/labsDevelopment/ProgectForTenzor/app/src/main/res/layout/activity_addwords.xml" value="0.152" />
+        <entry key="..\:/labsDevelopment/ProgectForTenzor/app/src/main/res/layout/activity_addwords.xml" value="0.264" />
+        <entry key="..\:/labsDevelopment/ProgectForTenzor/app/src/main/res/layout/activity_dictionary.xml" value="0.16666666666666666" />
         <entry key="..\:/labsDevelopment/ProgectForTenzor/app/src/main/res/layout/activity_learnwords.xml" value="0.2" />
         <entry key="..\:/labsDevelopment/ProgectForTenzor/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/labsDevelopment/ProgectForTenzor/app/src/main/res/layout/view_oneword.xml" value="0.1" />
       </map>
     </option>
   </component>

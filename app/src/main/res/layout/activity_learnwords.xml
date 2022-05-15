@@ -12,8 +12,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/info_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Карточка на кота Василия"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+    </androidx.cardview.widget.CardView>
     <ImageButton
         android:id="@+id/backToMenu"
         android:layout_width="50dp"
@@ -30,6 +40,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:text="@string/neverRepeat"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardOfWord" />
@@ -42,17 +53,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/neverRepeat" />
-
-    <TextView
-        android:id="@+id/nameOfOurApp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/nameApp"
-        app:layout_constraintBottom_toTopOf="@+id/cardOfWord"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
