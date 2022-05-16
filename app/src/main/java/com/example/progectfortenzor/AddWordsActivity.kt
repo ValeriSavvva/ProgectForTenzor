@@ -72,7 +72,8 @@ class AddWordsActivity : Activity() {
         }
 
         addWord?.setOnClickListener{
-            dbManager.insertToDb(descriptionWords.text.toString(),descriptionWords.text.toString())
+//            if(descriptionWords.text.toString()!="")
+//            dbManager.insertToDb(descriptionWords.text.toString(),descriptionWords.text.toString())
         }
     }
 

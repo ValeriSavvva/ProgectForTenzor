@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fon"
+    android:backgroundTintMode="add"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/repeatWords"
-        android:backgroundTint="#86322777"
         android:layout_width="230dp"
         android:layout_height="50dp"
+        android:backgroundTint="#86322777"
         android:text="@string/repeatWords"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,9 +21,9 @@
 
     <Button
         android:id="@+id/addWords"
-        android:backgroundTint="#86322777"
         android:layout_width="230dp"
         android:layout_height="50dp"
+        android:backgroundTint="#86322777"
         android:text="@string/addWords"
         app:layout_constraintBottom_toTopOf="@+id/repeatWords"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,9 +31,9 @@
 
     <Button
         android:id="@+id/showList"
-        android:backgroundTint="#86322777"
         android:layout_width="230dp"
         android:layout_height="50dp"
+        android:backgroundTint="#86322777"
         android:text="@string/showList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nameApp"
-        android:textSize="20dp"
+        android:textSize="30dp"
+        android:textColor="@color/rep"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/repeatWords"
         app:layout_constraintEnd_toEndOf="parent"
