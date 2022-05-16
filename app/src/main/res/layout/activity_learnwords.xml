@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fon">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardOfWord"
@@ -18,8 +19,9 @@
             android:id="@+id/info_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#86322777"
             android:gravity="center"
-            android:text="Карточка на кота Василия"
+            android:text="Карточка"
             android:textColor="@color/black"
             android:textSize="30sp" />
 
@@ -47,6 +49,7 @@
 
     <Button
         android:id="@+id/nextWord"
+        android:backgroundTint="#86322777"
         android:layout_width="230dp"
         android:layout_height="50dp"
         android:text="@string/nextWord"

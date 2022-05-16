@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fon">
 
     <SearchView
         android:id="@+id/searchWord"
@@ -18,9 +19,9 @@
         android:id="@+id/translateWord"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
+        android:layout_margin="30dp"
         android:gravity="center"
         android:text="TextView"
-        android:layout_margin="30dp"
         android:textColor="@color/black"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,8 +33,9 @@
         android:id="@+id/addWord"
         android:layout_width="230dp"
         android:layout_height="50dp"
+        android:backgroundTint="#86322777"
         android:text="@string/addWord"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/translateWord" />
