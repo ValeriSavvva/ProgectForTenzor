@@ -41,7 +41,7 @@ class AddWordsActivity : Activity() {
                 descriptionWords.visibility = View.VISIBLE
                 showTranslateWord("Переводим..")
                 addWord.visibility = View.VISIBLE
-                translateWord(p0)
+                translateWord(p0,langSource,langTarget)
                 return true
             }
             override fun onQueryTextChange(p0: String?): Boolean {
@@ -82,7 +82,7 @@ class AddWordsActivity : Activity() {
 
 
 
-    fun translateWord(word: String?){
+    fun translateWord(word: String?,source: String,target: String){
         var result = ""
         GlobalScope.launch(Dispatchers.IO){
             Log.v(TAG, "Зашёл");
@@ -91,7 +91,7 @@ class AddWordsActivity : Activity() {
             Log.v(TAG, "создал клиент");
             val mediaType = "application/json".toMediaTypeOrNull()
             Log.v(TAG, "создал медиатайп");
-            val body = RequestBody.create(mediaType, "{\r\"q\": \"$word\",\r\"source\": \"ru\",\r\"target\": \"en\"\r }")
+            val body = RequestBody.create(mediaType, "{\r\"q\": \"$word\",\r\"source\": \"$source\",\r\"target\": \"$target\"\r }")
             Log.v(TAG, "создал бади");
             val request = Request.Builder()
                 .url("https://deep-translate1.p.rapidapi.com/language/translate/v2")
