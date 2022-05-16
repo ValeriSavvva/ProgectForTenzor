@@ -4,18 +4,26 @@ import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.*
-import java.io.*
+import android.widget.Button
+import android.widget.SearchView
+import android.widget.Switch
+import android.widget.TextView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
+import org.json.JSONException
 import org.json.JSONObject
-import java.net.URL
+import java.io.IOException
+import java.lang.Exception
 
 
 class AddWordsActivity : Activity() {
 
+    private val TAG = "AddWordsAPI"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addwords)
@@ -31,8 +39,9 @@ class AddWordsActivity : Activity() {
         searchWord.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 descriptionWords.visibility = View.VISIBLE
+                showTranslateWord("Переводим..")
                 addWord.visibility = View.VISIBLE
-                showTranslateWord(p0)
+                translateWord(p0)
                 return true
             }
             override fun onQueryTextChange(p0: String?): Boolean {
@@ -66,13 +75,24 @@ class AddWordsActivity : Activity() {
             dbManager.insertToDb(descriptionWords.text.toString(),descriptionWords.text.toString())
         }
     }
-    fun showTranslateWord(word: String?){
-        val descriptionWords: TextView = findViewById(R.id.translateWord)
-        try {
-            val client = OkHttpClient()
 
+
+
+
+
+
+
+    fun translateWord(word: String?){
+        var result = ""
+        GlobalScope.launch(Dispatchers.IO){
+            Log.v(TAG, "Зашёл");
+            Log.v(TAG, "Зашёл в трай");
+            val client = OkHttpClient()
+            Log.v(TAG, "создал клиент");
             val mediaType = "application/json".toMediaTypeOrNull()
+            Log.v(TAG, "создал медиатайп");
             val body = RequestBody.create(mediaType, "{\r\"q\": \"$word\",\r\"source\": \"ru\",\r\"target\": \"en\"\r }")
+            Log.v(TAG, "создал бади");
             val request = Request.Builder()
                 .url("https://deep-translate1.p.rapidapi.com/language/translate/v2")
                 .post(body)
@@ -80,22 +100,32 @@ class AddWordsActivity : Activity() {
                 .addHeader("X-RapidAPI-Host", "deep-translate1.p.rapidapi.com")
                 .addHeader("X-RapidAPI-Key", "afb4f1a598mshcb3b1b298dc69a3p199e4fjsnda81d5c95bee")
                 .build()
-            print(request)
-            val response = client.newCall(request).execute()
-            print(response)
-            var str = response.body!!.string()
-            print(str)
-            val jsonObject: JSONObject = JSONObject(str)
-            print(jsonObject)
-            var result = jsonObject.getJSONObject("data").getJSONObject("translations").getString("translatedText")
-            print(result)
-            descriptionWords.setText("$result")
+            Log.v(TAG, "создал реквест");
+            try{
+                val response = client.newCall(request).execute()
+                Log.v(TAG, "вызвал реквест");
+                var str = response.body!!.string()
+                Log.v(TAG, "создал строку из реквеста");
+                try {
+                    val jsonObject: JSONObject = JSONObject(str)
+                    Log.v(TAG, "создал джсон объект");
+                    result = jsonObject.getJSONObject("data").getJSONObject("translations").getString("translatedText")
+                    Log.v(TAG, "получили результат $result");
+                    showTranslateWord(result)
+                }
+                catch (e: JSONException) {
+                    Log.v(TAG, "$e");
+                }
 
-        } catch (e:Exception){
-            descriptionWords.setText(word)
+            }catch (e:Exception){
+                Log.v(TAG, "$e");
+            }
         }
     }
-
+    fun showTranslateWord(word:String){
+        val descriptionWords: TextView = findViewById(R.id.translateWord)
+        descriptionWords.setText(word)
+    }
 }
 
 
